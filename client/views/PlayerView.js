@@ -14,7 +14,6 @@ var PlayerView = Backbone.View.extend({
   },
 
 
-
   setSong: function(song) {
     this.model = song;
     //console.log('this is now the new this model', this.model);

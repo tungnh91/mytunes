@@ -7,7 +7,7 @@ var SongModel = Backbone.Model.extend({
   },
 
   enqueue: function() {
-    console.log('enque triggered');
+    //console.log('enque triggered');
     this.trigger('enqueue', this);
   },
 
@@ -19,3 +19,4 @@ var SongModel = Backbone.Model.extend({
     this.trigger('ended', this);
   }
 });
+// COnfirmed

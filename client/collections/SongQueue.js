@@ -5,36 +5,34 @@ var SongQueue = Backbone.Collection.extend({
 
   initialize: function() {
 
-    this.on('enqueue', function(song) {
-      this.push(song);
-
-    });
-
     this.on('add', function() {
       if (this.length === 1) {
         this.playFirst();
       }
-    });
+    }, this); /// add this as third param
+
+    // add ont that shifts
+    // add one that plays first or does nothing (specify this)
+    this.on('ended', this.shift);
 
     this.on('ended', function() {
-      if (this.length > 1) {
-        this.shift();
+      if (this.length > 0) {
         this.playFirst();
-      } else if (this.length === 1) {
-        this.shift();
+      } else {
+        // Nothing
       }
-    });
+    }, this);
 
     this.on('dequeue', function(id) {
       this.remove(id);
-    });
+    }, this);
   },
 
   playFirst: function() {
-    if (this.length >= 1) {
-      this.at(0).play();
-    }
+    this.at(0).play();
   },
 
   
 });
+
+//confirmed
