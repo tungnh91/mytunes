@@ -76,8 +76,13 @@ describe('SongQueue', function() {
     });
   });
 
-  describe('ADDTL: Should have length of zero if all songs are dequeued', function() {
-    it ('Should properly remove song from queue', function() {
+  describe('ADDTL: SHould accurately reflect correct collection length', function() {
+    it ('addl1: Collection length should be 2 when 2 songs are queued', function() {
+      var songQueue = new SongQueue(songData1);
+      songQueue.add(songData2);
+      expect(songQueue.length).to.equal(2);
+    });
+    it ('addl2: Collection length should be zero when all songs are dequeued', function() {
       removeSpy = sinon.spy(SongQueue.prototype, 'remove');
       var songQueue = new SongQueue(songData1);
       songQueue.at(0).dequeue();
