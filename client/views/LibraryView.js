@@ -4,8 +4,9 @@ var LibraryView = Backbone.View.extend({
   tagName: 'table',
 
   initialize: function() {
+    // set for sync, because when you sync you collection when parse dat that even triggers
+    this.collection.on('sync', this.render, this);
     this.render();
-    
   },
 
   render: function() {
@@ -21,3 +22,4 @@ var LibraryView = Backbone.View.extend({
   }
 
 });
+

@@ -6,7 +6,7 @@
     <script src="bower_components/jquery/jquery.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <script src="bower_components/backbone/backbone.js"></script>
-
+    <script src="env/config.js"></script>
     <script src="data/data.js"></script>
 
     <script src="models/SongModel.js"></script>
@@ -23,17 +23,51 @@
     <script src="views/AppView.js"></script>
 
     <script>
-      $(function() {
+    // window.songData = [];
+    
+     $(function() {
+        ////
+
+    //console.log(songData);
         // set up model objects
-        var library = new Songs(songData);
-        var app = new AppModel({library: library});
+       var library = new Songs(songData);
+       //console.log(songData);
+       var app = new AppModel({library: library});
 
         // build a view for the top level of the whole app
-        var appView = new AppView({model: app});
+       var appView = new AppView({model: app});
 
         // put the view onto the screen
-        $('body').append(appView.render());
-      });
+       $('body').append(appView.render());
+     });
     </script>
   </body>
 </html>
+
+<!-- fetch: function(url) {
+    $.ajax({
+      url: url,
+      type: 'GET',
+      contentType: 'application/json',
+      data: 'order=-createdAt',
+      success: function (data) {
+        app.clearMessages();
+        data.results.forEach(function(messageObj) {
+
+          // generate every new message for current room only
+          if (app.currentRoom === messageObj.roomname) {
+            app.renderMessage(messageObj);
+          }
+
+          // check if any new rooms have been created since last fetch, if so. Add them to roomList
+          if (!app.roomList.includes(messageObj.roomname)) {
+            app.roomList.push(messageObj.roomname);
+          }
+        });
+      },
+      error: function (data) {
+        // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
+        console.error('chatterbox: Failed to get message', data);
+      }
+    });
+  }, -->

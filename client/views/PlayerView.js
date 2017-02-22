@@ -10,7 +10,7 @@ var PlayerView = Backbone.View.extend({
     var context = this;
     this.$el.on('ended', function() {
       context.model.ended();
-    });
+    });                                                                                                                          
   },
 
 
