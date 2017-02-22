@@ -75,4 +75,14 @@ describe('SongQueue', function() {
       SongModel.prototype.play.restore();
     });
   });
+
+  describe('ADDTL: Should have length of zero if all songs are dequeued', function() {
+    it ('Should properly remove song from queue', function() {
+      removeSpy = sinon.spy(SongQueue.prototype, 'remove');
+      var songQueue = new SongQueue(songData1);
+      songQueue.at(0).dequeue();
+      expect(songQueue.length).to.equal(0);
+    });
+
+  });
 });
