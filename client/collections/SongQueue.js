@@ -8,6 +8,8 @@ var SongQueue = Backbone.Collection.extend({
     this.on('add', function() {
       if (this.length === 1) {
         this.playFirst();
+      } else {
+        ///
       }
     }, this); /// add this as third param
 
