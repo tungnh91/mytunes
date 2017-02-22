@@ -2,8 +2,13 @@
 <html>
   <head>
     <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+    <link type="text/css" href="/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet"/>
+    <link type="text/css" href="/css/styles.css" rel="stylesheet"/>
   </head>
   <body>
+  <img src="equalizer.gif"></img>
+  <img src="logo.png"></img>
+
     <!-- Scripts may be placed anywhere on a page. But FYI, they block rendering of elements
      below them until after the scripts load-->
     <script src="bower_components/jquery/jquery.min.js"></script>
@@ -17,6 +22,10 @@
     <script src="collections/SongQueue.js"></script>
     <script src="models/AppModel.js"></script>
 
+    <script src="collections/Visualizer.js"></script>
+
+
+    <script src="views/VisualizerView.js"></script>
     <script src="views/SongQueueView.js"></script>
     <script src="views/SongQueueEntryView.js"></script>
 
@@ -33,6 +42,11 @@
 
     //console.log(songData);
         // set up model objects
+
+       $('img').hide();
+       $('audio').on('click', function(){
+          $('img').toggle();
+       });
        var library = new Songs(songData);
        //console.log(songData);
        var app = new AppModel({library: library});

@@ -10,7 +10,8 @@ var LibraryEntryView = Backbone.View.extend({
       this.model.play();
       this.model.enqueue();
       var num = this.model.get('count');
-      this.model.set('count', num + '<i class="em em-shipit"></i>');
+      this.model.set('count', num + '<i class="em em-heart"></i>');
+      $('img').show();
       this.render();
     }
   },
